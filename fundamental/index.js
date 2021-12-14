@@ -1,67 +1,63 @@
+const { fullNameSelector, totalMarksSelector } = require('./selectors');
+const { getState, dispatch } = require('./store');
 
-const { fullNameSelector } = require('./selectors');
-const {getState , dispatch}  = require('./store')
+const lineBreak = ()=>console.log()
+
+const changePhone = (payload, type = 'PHONE_CHANGE') =>
+  dispatch({ payload, type });
+const changeFirstName = (payload, type = 'FIRST_NAME_CHANGE') =>
+  dispatch({ payload, type });
+const changeCity = (payload, type = 'CITY_CHANGE') =>
+  dispatch({ payload, type });
+const changeMarks = (type = 'UPDATE_MARKS') =>
+  dispatch({ type });
 
 
-dispatch({
-  payload: 'Chandramohan',
-  type: 'FIRST_NAME_CHANGE',
-});
+console.log(totalMarksSelector(getState()));
+console.log(totalMarksSelector(getState()));
 
-console.log(fullNameSelector(getState()));
+lineBreak()
 
-dispatch({
-  payload: 'Bhopal',
-  type: 'CITY_CHANGE',
-});
+console.log(fullNameSelector(getState()))
+changeCity("Jabalpur")
+console.log(fullNameSelector(getState()))
+changePhone("9988790899")
+console.log(fullNameSelector(getState()))
 
-console.log(fullNameSelector(getState()));
+lineBreak()
 
-dispatch({
-  payload: '8998983849',
-  type: 'PHONE_CHANGE',
-});
+changeFirstName("Sachin")
+console.log(fullNameSelector(getState()))
+changeCity("Pune")
+console.log(fullNameSelector(getState()))
+changePhone("9988792229")
+console.log(fullNameSelector(getState()))
 
-console.log(fullNameSelector(getState()));
+lineBreak()
 
-dispatch({
-  payload: 'Virendra',
-  type: 'FIRST_NAME_CHANGE',
-});
+changeFirstName("Sandeep")
+console.log(fullNameSelector(getState()))
+changeCity("Bhopal")
+console.log(fullNameSelector(getState()))
+changePhone("23232323")
+console.log(fullNameSelector(getState()))
 
-console.log(fullNameSelector(getState()));
+lineBreak()
 
-dispatch({
-  payload: 'Mumbai',
-  type: 'CITY_CHANGE',
-});
+console.log(totalMarksSelector(getState()));
 
-console.log(fullNameSelector(getState()));
+lineBreak()
 
-dispatch({
-  payload: '8r448983849',
-  type: 'PHONE_CHANGE',
-});
+console.log("Updating Marks - it will calculate again")
+changeMarks()
+console.log(totalMarksSelector(getState()));
+console.log(totalMarksSelector(getState()));
+console.log(totalMarksSelector(getState()));
+console.log(totalMarksSelector(getState()));
 
-console.log(fullNameSelector(getState()));
-
-dispatch({
-  payload: 'Sandeep',
-  type: 'FIRST_NAME_CHANGE',
-});
-
-console.log(fullNameSelector(getState()));
-
-dispatch({
-  payload: 'Indore',
-  type: 'CITY_CHANGE',
-});
-
-console.log(fullNameSelector(getState()));
-
-dispatch({
-  payload: '433545',
-  type: 'PHONE_CHANGE',
-});
-
-console.log(fullNameSelector(getState()));
+console.log("Updating Marks - it will calculate again")
+changeMarks()
+console.log(totalMarksSelector(getState()));
+console.log(totalMarksSelector(getState()));
+console.log(totalMarksSelector(getState()));
+console.log(totalMarksSelector(getState()));
