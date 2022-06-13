@@ -23,7 +23,7 @@ const student = {
   },
   contact: {
     email: 'patelvirendra62@gmail.com',
-    phone: '9144460897',
+    phone: '67678788787',
   },
 };
 
@@ -47,15 +47,15 @@ function reducer(state = initialState, { payload, type }) {
   }
   if (type === 'UPDATE_MARKS') {
     const local = { ...state };
-    const random = ()=>Math.floor(Math.random() * 100)
+    const random = () => Math.floor(Math.random() * 100);
     local.student.marks = [
       { subject: 'Maths', marks: random() },
       { subject: 'English', marks: random() },
       { subject: 'Javascript', marks: random() },
-      { subject: 'Science', marks:  random()},
+      { subject: 'Science', marks: random() },
       { subject: 'Java', marks: random() },
-    ]
-    return local
+    ];
+    return local;
   }
   return state;
 }
